@@ -8,7 +8,17 @@ wire w,x,y,z;
 
 always @ (w,x,y,z) begin
 
-
+    //placeholders
+    f0 = w;
+    f1 = x;
+    f2 = y;
+    f3 = z;
+    f4 = w;
+    f5 = x;
+    f6 = y;
+    f7 = z;
+    f8 = w;
+    f9 = x;
 end
 
 endmodule
@@ -26,7 +36,7 @@ module testbench ();
     Breadboard bb8(w,x,y,z,f0,f1,f2,f3,f4,f5,f6,f7,f8,f9);
     initial begin
 
-    $display ("|##|A|B|C|D|F0|F1|F2|F3|F4|F5|F6|F7|F8|F9|");
+    $display ("|##|W|X|Y|Z|F0|F1|F2|F3|F4|F5|F6|F7|F8|F9|");
     $display ("|==+=+=+=+=+==+==+==+==+==+==+==+==+==+==|");
     for(i = 0; i <= 15; i = i + 1)
     begin
