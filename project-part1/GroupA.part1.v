@@ -11,17 +11,16 @@ wire w,x,y,z;
 
 always @ (w,x,y,z) begin
 
-    //placeholders
-    f0 = w;
-    f1 = x;
-    f2 = y;
-    f3 = z;
-    f4 = w;
-    f5 = x;
-    f6 = y;
-    f7 = z;
-    f8 = w;
-    f9 = x;
+    f0 = (~w & ~x & ~y & ~z)| (~w & x & ~y & z)| (~w & x & y & z)| (w & ~x & ~y & ~z)| (w & ~x & ~y & z)| (w & ~x & y & z)| (w & x & ~y & z);
+    f1 = (~w & ~x & ~y & ~z)| (~w & ~x & y & ~z)| (w & ~x & ~y & ~z)| (w & x & y & z);
+    f2 = (~w & ~x & y & ~z)|(~w & ~x & y & z)|(~w & x & y & ~z)|(~w & x & y & z)|(w & ~x & ~y & z)|(w & ~x & y & ~z)|(w & x & ~y & z)|(w & x & y & z);
+    f3 = (~w & ~x & ~y & z)|(~w & x & y & ~z)|(~w & x & y & z)|(w & ~x & y & z)|(w & x & ~y & z)|(w & x & y & ~z)|(w & x & y & z);
+    f4 = (~w & ~x & y & ~z)|(~w & ~x & y & z)|(~w & x & ~y & ~z)|(~w & x & ~y & z)|(w & ~x & y & ~z)|(w & x & y & ~z)|(w & x & y & z);
+    f5 = (~w & ~x & ~y & ~z)| (~w & ~x & y & z)| (~w & x & ~y & ~z)| (~w & x & ~y & z)| (~w & x & y & z)| (w & ~x & ~y & z)| (w & x & y & ~z);
+    f6 = (~w & ~x & ~y & ~z)|(~w & x & ~y & ~z)|(~w & x & ~y & z)|(~w & x & y & ~z)|(w & ~x & y & ~z)|(w & ~x & y & z)|(w & x & ~y & z);
+    f7 = (~w & ~x & y & ~z)|(~w & x & ~y & ~z)|(~w & x & ~y & z)|(~w & x & y & z)|(w & ~x & ~y & z)|(w & ~x & y & ~z)|(w & x & ~y & ~z)|(w & x & ~y & z);
+    f8 = (~w & ~x & ~y & ~z)|(~w & ~x & ~y & z)|(~w & ~x & y & z)|(w & ~x & ~y & z)|(w & ~x & y & z)|(w & x & ~y & ~z);
+    f9 = (~w & ~x & ~y & ~z)|(~w & ~x & y & ~z)|(~w & x & ~y & z)|(w & ~x & ~y & ~z)|(w & ~x & ~y & z)|(w & ~x & y & ~z)|(w & ~x & y & z)|(w & x & ~y & z)|(w & x & y & ~z);
 end
 
 endmodule
